@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-base: #FFFFFF;
+    --bg-surface: #F5F5F4;
+    --bg-raised: #EDEDEB;
+    --border: #E4E4E1;
+    --gold: #9A7420;
+    --emerald: #0E8A63;
+    --text-primary: #0A0A0A;
+    --text-muted: #666666;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    font-family: 'Geist', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2px solid #9A7420;
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #FFFFFF; }
+  ::-webkit-scrollbar-thumb { background: #E4E4E1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9A7420; }
+}
+
+/* Named text styles (B1) */
+@layer components {
+  .heading-1 { @apply text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight; }
+  .heading-2 { @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight; }
+  .heading-3 { @apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight; }
+  .heading-4 { @apply text-3xl font-semibold; }
+  .heading-5 { @apply text-2xl font-semibold; }
+  .heading-6 { @apply text-xl font-semibold; }
+  .title-1 { @apply text-xl font-medium; }
+  .title-2 { @apply text-lg font-medium; }
+  .title-3 { @apply text-base font-medium; }
+  .title-4 { @apply text-sm font-medium; }
+  .body-2 { @apply text-base font-medium; }
+  .body-3 { @apply text-base font-normal; }
+  .body-5 { @apply text-sm font-medium; }
+  .body-6 { @apply text-sm font-normal; }
+  .button-md { @apply text-base font-semibold; }
+  .button-sm { @apply text-sm font-semibold; }
+  .caption-1 { @apply text-sm font-medium; }
+  .caption-4 { @apply text-xs font-medium; }
+
+  /* Hero heading gradient: text only */
+  .text-hero-gradient {
+    background: linear-gradient(to right, #000000, #666666);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.font-tabular { font-family: 'Geist Mono', monospace; font-variant-numeric: tabular-nums; }
+.gold-glow { box-shadow: 0 0 40px -10px rgba(154,116,32, 0.18); }
+
+/* Subtle grid backdrop, flat lines only */
+.bg-grid-subtle {
+  background-image:
+    linear-gradient(to right, rgba(10, 10, 10, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes dash { to { stroke-dashoffset: -240; } }
